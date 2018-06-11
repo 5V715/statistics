@@ -45,11 +45,21 @@ class TransactionControllerTest {
     }
 
     @Test
-    fun `try posting invalid transactions`() {
+    fun `try posting invalid json`() {
         val mvc = MockMvcBuilders.webAppContextSetup(context).build()
         mvc.perform(
             post("/transactions")
-                .content("""{  }""")
+                .content("""{  """)
+                .contentType(MediaType.APPLICATION_JSON))
+            .andExpect((MockMvcResultMatchers.status().isBadRequest))
+    }
+
+    @Test
+    fun `try posting invalid transaction json`() {
+        val mvc = MockMvcBuilders.webAppContextSetup(context).build()
+        mvc.perform(
+            post("/transactions")
+                .content("""{ }""")
                 .contentType(MediaType.APPLICATION_JSON))
             .andExpect((MockMvcResultMatchers.status().isNoContent))
     }

@@ -55,8 +55,5 @@ class LoadTest {
                 .contentType(MediaType.APPLICATION_JSON))
             .andExpect((MockMvcResultMatchers.status().isOk))
             .andDo { result -> println(result.response.contentAsString) }
-
-
     }
-
 }
