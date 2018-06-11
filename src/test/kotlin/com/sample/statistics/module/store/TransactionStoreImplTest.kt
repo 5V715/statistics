@@ -25,8 +25,8 @@ class TransactionStoreImplTest {
         val validator = TransactionValidatorImpl()
         val transactionStore = TransactionStoreImpl(validator)
 
-        transactionStore.put(Transaction(4.4,Instant.now().epochSecond))
-        transactionStore.put(Transaction(4.3,Instant.now().epochSecond - 30))
+        transactionStore.put(Transaction(4.4, Instant.now().epochSecond))
+        transactionStore.put(Transaction(4.3, Instant.now().epochSecond - 30))
 
         val result = transactionStore.getAll()
         assertThat(result).hasSize(2)
