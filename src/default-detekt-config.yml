@@ -15,6 +15,7 @@ test-pattern: # Configure exclusions for test sources
     - 'MagicNumber'
     - 'MaxLineLength'
     - 'LateinitUsage'
+    - 'NewLineAtEndOfFile'
     - 'StringLiteralDuplication'
     - 'SpreadOperator'
     - 'TooManyFunctions'

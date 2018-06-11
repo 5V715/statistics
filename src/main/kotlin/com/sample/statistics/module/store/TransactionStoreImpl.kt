@@ -3,7 +3,10 @@ package com.sample.statistics.module.store
 import com.sample.statistics.module.validate.TransactionValidator
 import org.springframework.beans.factory.annotation.Autowired
 
-class TransactionStoreImpl @Autowired constructor(private val transactionValidator: TransactionValidator, private val transactions: MutableList<Transaction> = mutableListOf()) : TransactionStore {
+class TransactionStoreImpl @Autowired constructor(
+    private val transactionValidator: TransactionValidator,
+    private val transactions: MutableList<Transaction> = mutableListOf()
+) : TransactionStore {
 
     override fun getAll(): List<Transaction> =
         transactions.filter { transactionValidator.validate(it) }
