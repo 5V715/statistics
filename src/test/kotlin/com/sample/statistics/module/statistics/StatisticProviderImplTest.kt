@@ -14,9 +14,9 @@ class StatisticProviderImplTest {
     fun `check if the creation works`() {
         val someTransactions =
             listOf(
-                Transaction(2.0, Instant.now().epochSecond),
-                Transaction(5.0, Instant.now().epochSecond),
-                Transaction(3.0, Instant.now().epochSecond)
+                Transaction(2.0, Instant.now().toEpochMilli()),
+                Transaction(5.0, Instant.now().toEpochMilli()),
+                Transaction(3.0, Instant.now().toEpochMilli())
             )
         val store = mock(TransactionStore::class.java)
         `when`(store.getAll()).thenReturn(someTransactions)

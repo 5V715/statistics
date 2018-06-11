@@ -11,7 +11,7 @@ class TransactionValidatorImplTest {
     fun `transactions is too old`() {
         val validator = TransactionValidatorImpl()
         val someTransaction =
-        Transaction(45.9, Instant.now().epochSecond - 10)
+        Transaction(45.9, Instant.now().toEpochMilli() - 10000)
 
         Truth.assertThat(validator.validate(someTransaction)).isFalse()
     }
@@ -20,7 +20,7 @@ class TransactionValidatorImplTest {
     fun `transactions is ok`() {
         val validator = TransactionValidatorImpl()
         val someTransaction =
-            Transaction(45.9, Instant.now().epochSecond - 5)
+            Transaction(45.9, Instant.now().toEpochMilli() - 5000)
 
         Truth.assertThat(validator.validate(someTransaction)).isTrue()
     }
