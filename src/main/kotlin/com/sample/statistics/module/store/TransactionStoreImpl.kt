@@ -5,15 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired
 
 class TransactionStoreImpl @Autowired constructor(
     private val transactionValidator: TransactionValidator,
-    private val transactions: MutableList<Transaction> = mutableListOf()
+    private var transactions: List<Transaction> = mutableListOf()
 ) : TransactionStore {
 
-    override fun getAll(): List<Transaction> =
-        transactions.filter { transactionValidator.validate(it) }
+    override fun getAll(): List<Transaction> {
+        transactions = transactions.filter { transactionValidator.validate(it) }
+        return transactions
+    }
 
     override fun put(transaction: Transaction): Boolean =
         when (transactionValidator.validate(transaction)) {
-            true -> transactions.add(transaction)
+            true -> {
+                transactions += transaction
+                true
+            }
             else -> false
         }
 }

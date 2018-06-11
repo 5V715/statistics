@@ -18,9 +18,9 @@ class TransactionController @Autowired constructor(val transactionStore: Transac
     @ResponseStatus(HttpStatus.ACCEPTED)
     fun storeTransaction(@RequestBody transaction: Transaction) {
         when (transactionStore.put(transaction)) {
-            true -> logger.info { "stored transaction" }
+            true -> logger.debug { "stored transaction" }
             else -> {
-                logger.info { "transaction rejected" }
+                logger.debug { "transaction rejected" }
                 throw NotAcceptableException()
             }
         }
