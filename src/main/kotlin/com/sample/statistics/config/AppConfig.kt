@@ -10,11 +10,9 @@ import com.natpryce.konfig.overriding
 
 object AppConfig : PropertyGroup() {
 
-    val offset  by longType
+    val offset by longType
 
     val config = systemProperties() overriding
         EnvironmentVariables() overriding
         ConfigurationProperties.fromResource("defaults.properties")
-
-
 }
