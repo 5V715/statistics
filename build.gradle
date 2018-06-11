@@ -51,6 +51,7 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     compile('io.github.microutils:kotlin-logging:1.5.4')
+    compile('com.natpryce:konfig:1.6.9.0')
     runtime('org.springframework.boot:spring-boot-devtools')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.google.truth:truth:0.39')

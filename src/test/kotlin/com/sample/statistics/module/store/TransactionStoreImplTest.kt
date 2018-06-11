@@ -13,7 +13,7 @@ class TransactionStoreImplTest {
         val transactionStore = TransactionStoreImpl(validator)
 
         transactionStore.put(Transaction(4.4, Instant.now().epochSecond))
-        transactionStore.put(Transaction(4.3, Instant.now().epochSecond - 61))
+        transactionStore.put(Transaction(4.3, Instant.now().epochSecond - 10))
         transactionStore.put(Transaction(5.4, Instant.now().epochSecond))
 
         val result = transactionStore.getAll()
@@ -26,11 +26,11 @@ class TransactionStoreImplTest {
         val transactionStore = TransactionStoreImpl(validator)
 
         transactionStore.put(Transaction(4.4, Instant.now().epochSecond))
-        transactionStore.put(Transaction(4.3, Instant.now().epochSecond - 55))
+        transactionStore.put(Transaction(4.3, Instant.now().epochSecond - 5))
 
         val result = transactionStore.getAll()
         assertThat(result).hasSize(2)
-        Thread.sleep(10000)
+        Thread.sleep(5000)
         val laterResult = transactionStore.getAll()
         assertThat(laterResult).hasSize(1)
     }
