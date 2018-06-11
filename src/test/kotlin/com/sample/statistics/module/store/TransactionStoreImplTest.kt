@@ -31,7 +31,6 @@ class TransactionStoreImplTest {
         val result = transactionStore.getAll()
         assertThat(result).hasSize(2)
         Thread.sleep(5000)
-      
         val laterResult = transactionStore.getAll()
         assertThat(laterResult).hasSize(1)
     }
