@@ -13,5 +13,4 @@ class TransactionStoreImpl @Autowired constructor(private val transactionValidat
             true -> transactions.add(transaction)
             else -> false
         }
-
 }

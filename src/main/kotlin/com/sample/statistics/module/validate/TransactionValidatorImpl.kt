@@ -15,6 +15,4 @@ class TransactionValidatorImpl : TransactionValidator {
         logger.debug { "time delta: $delta" }
         return delta < OFFSET
     }
-
-
 }

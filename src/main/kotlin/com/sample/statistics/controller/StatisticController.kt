@@ -14,7 +14,4 @@ class StatisticController @Autowired constructor(val statisticProvider: Statisti
     @GetMapping(path = ["/statistics"],
         produces = [MimeTypeUtils.APPLICATION_JSON_VALUE])
     fun stats() = ResponseEntity(statisticProvider.getStatistic(), HttpStatus.OK)
-
-
 }
-
