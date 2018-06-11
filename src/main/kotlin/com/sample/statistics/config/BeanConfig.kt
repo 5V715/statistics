@@ -22,5 +22,4 @@ class BeanConfig() {
     @Bean
     fun statisticsProvider(transactionStore: TransactionStore): StatisticProvider =
         StatisticProviderImpl(transactionStore)
-
 }

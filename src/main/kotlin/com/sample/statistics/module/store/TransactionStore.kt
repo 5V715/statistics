@@ -5,5 +5,4 @@ interface TransactionStore {
     fun put(transaction: Transaction): Boolean
 
     fun getAll(): List<Transaction>
-
 }

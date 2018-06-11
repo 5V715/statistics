@@ -5,5 +5,4 @@ import com.sample.statistics.module.store.Transaction
 interface TransactionValidator {
 
     fun validate(transaction: Transaction): Boolean
-
 }

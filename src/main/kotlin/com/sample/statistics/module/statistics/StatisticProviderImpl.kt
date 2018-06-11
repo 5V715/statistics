@@ -9,12 +9,15 @@ class StatisticProviderImpl @Autowired constructor(private val transactionStore:
     override fun getStatistic(): Statistic =
         transactionStore.getAll().getStatistic()
 
-    private fun List<Transaction>.getStatistic(): Statistic {
+    private fun Collection<Transaction>.getStatistic(): Statistic {
         val sum = sumByDouble { it.amount }
         return Statistic(sum,
-            sum / size,
-            maxBy { it.amount }?.amount ?: -1.0,
-            minBy { it.amount }?.amount ?: -1.0,
+            when (size) {
+                0 -> 0.0
+                else -> sum / size
+            },
+            maxBy { it.amount }?.amount ?: 0.0,
+            minBy { it.amount }?.amount ?: 0.0,
             size.toLong())
     }
 }
