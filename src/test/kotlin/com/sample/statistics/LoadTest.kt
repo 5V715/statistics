@@ -30,7 +30,7 @@ class LoadTest {
                 MockMvcRequestBuilders.post("/transactions")
                     .content("{ \"amount\": ${Math.abs(Random().nextDouble())}, " +
                         "\"timestamp\" : ${Instant.now().epochSecond -
-                            ThreadLocalRandom.current().nextInt(0, 90 + 1)} }")
+                            ThreadLocalRandom.current().nextInt(0, 10 + 1)} }")
                     .contentType(MediaType.APPLICATION_JSON))
         }
 
