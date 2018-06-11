@@ -13,6 +13,6 @@ class TransactionValidatorImpl : TransactionValidator {
     override fun validate(transaction: Transaction): Boolean {
         val delta = Math.abs(Instant.now().epochSecond - transaction.timestamp)
         logger.debug { "time delta: $delta" }
-        return delta < OFFSET
+        return delta <= OFFSET
     }
 }
