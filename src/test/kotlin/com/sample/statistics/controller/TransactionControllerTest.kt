@@ -44,6 +44,16 @@ class TransactionControllerTest {
             .andExpect((MockMvcResultMatchers.status().isNoContent))
     }
 
+    @Test
+    fun `try posting invalid transactions`() {
+        val mvc = MockMvcBuilders.webAppContextSetup(context).build()
+        mvc.perform(
+            post("/transactions")
+                .content("""{  }""")
+                .contentType(MediaType.APPLICATION_JSON))
+            .andExpect((MockMvcResultMatchers.status().isNoContent))
+    }
+
     @TestConfiguration
     class TestConfig {
 
