@@ -30,7 +30,6 @@ class StatisticControllerTest {
             get("/statistics")
                 .contentType(MediaType.APPLICATION_JSON))
             .andExpect((status().isOk))
-
     }
 
     @TestConfiguration
@@ -43,8 +42,5 @@ class StatisticControllerTest {
                 .thenReturn(Statistic(0.0, 0.0, 0.0, 0.0, 0))
             return mock
         }
-
     }
-
-
 }

@@ -5,24 +5,23 @@ import com.sample.statistics.module.store.Transaction
 import org.junit.Test
 import java.time.Instant
 
-class TransactionValidatorImplTest{
+class TransactionValidatorImplTest {
 
     @Test
-    fun `transactions is too old`(){
+    fun `transactions is too old`() {
         val validator = TransactionValidatorImpl()
         val someTransaction =
-            Transaction(45.9,Instant.now().epochSecond - 60)
+            Transaction(45.9, Instant.now().epochSecond - 60)
 
         Truth.assertThat(validator.validate(someTransaction)).isFalse()
     }
 
     @Test
-    fun `transactions is ok`(){
+    fun `transactions is ok`() {
         val validator = TransactionValidatorImpl()
         val someTransaction =
-            Transaction(45.9,Instant.now().epochSecond - 30)
+            Transaction(45.9, Instant.now().epochSecond - 30)
 
         Truth.assertThat(validator.validate(someTransaction)).isTrue()
     }
-
 }
